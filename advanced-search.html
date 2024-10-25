@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm nâng cao - IMDb</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-group div {
+            width: 30%; /* 3 columns */
+            padding: 5px;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #575757;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tìm kiếm nâng cao</h1>
+
+        <div class="form-group">
+            <label>Thể loại phim:</label>
+            <div class="checkbox-group">
+                <div><input type="checkbox" id="action" name="genre" value="Action"><label for="action">Hành động</label></div>
+                <div><input type="checkbox" id="comedy" name="genre" value="Comedy"><label for="comedy">Hài hước</label></div>
+                <div><input type="checkbox" id="drama" name="genre" value="Drama"><label for="drama">Chính kịch</label></div>
+                <div><input type="checkbox" id="horror" name="genre" value="Horror"><label for="horror">Kinh dị</label></div>
+                <div><input type="checkbox" id="sci-fi" name="genre" value="Sci-Fi"><label for="sci-fi">Khoa học viễn tưởng</label></div>
+                <div><input type="checkbox" id="romance" name="genre" value="Romance"><label for="romance">Lãng mạn</label></div>
+                <!-- Add more genres as needed -->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="releaseYear">Năm ra mắt:</label>
+            <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2024" placeholder="Nhập năm ra mắt">
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Điểm số đánh giá:</label>
+            <select id="rating" name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="completionStatus">Mức độ hoàn thành:</label>
+            <select id="completionStatus" name="completionStatus">
+                <option value="completed">Hoàn thành</option>
+                <option value="not_completed">Chưa hoàn thành</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="episodes">Số tập:</label>
+            <select id="episodes" name="episodes">
+                <option value="12">12 tập</option>
+                <option value="24">24 tập</option>
+                <option value="over_24">Trên 24 tập</option>
+            </select>
+        </div>
+
+        <button type="submit">Tìm kiếm</button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb: Ratings, Reviews, and Where to Watch the Best Anime</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Thanh điều hướng */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        .navbar a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Biểu tượng menu */
+        .menu-icon {
+            float: right;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 14px 20px;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .movie {
+            display: flex;
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .movie img {
+            width: 140px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .movie-info {
+            flex: 1;
+        }
+
+        .movie-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .movie-duration {
+            color: #777;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Cửa sổ menu */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -33%; /* Khởi đầu bên ngoài màn hình */
+            width: 33%;
+            height: 100%;
+            background-color: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 100;
+            padding: 20px;
+            display: none; /* Ẩn mặc định */
+        }
+
+        .side-menu.active {
+            display: block; /* Hiển thị khi kích hoạt */
+            right: 0; /* Di chuyển vào màn hình */
+        }
+
+        .side-menu h2 {
+            margin-top: 0;
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .side-menu ul li {
+            margin: 15px 0;
+        }
+
+        .side-menu ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .close-menu {
+            cursor: pointer;
+            float: right;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <div class="navbar">
+        <a href="#">Trang chủ</a>
+        <a href="#">Đánh giá phim</a>
+        <a href="#">Thể loại phim</a>
+        <a href="login.html">Đăng nhập</a> <!-- Liên kết tới trang đăng nhập -->
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span> <!-- Biểu tượng menu -->
+    </div>
+
+    <header>
+        <h1>IMDb: Ratings, Reviews, and Where to Watch the Best Anime</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- Danh sách phim -->
+        <div class="movie">
+            <img src="https://m.media-amazon.com/images/M/MV5BNTI3MDkzNjctOTY2Ni00ZTJiLWI5N2ItNDI2MzI4MWJlMTMyXkEyXkFqcGc@._V1_QL75_UX140_CR0,0,140,207_.jpg" alt="Saturday Night">
+            <div class="movie-info">
+                <div class="movie-title">Understanding Dan Aykroyd and Improvising as Chevy Chase</div>
+                <div class="movie-duration">5:43</div>
+                <p>The 'Saturday Night' Cast on "SNL" Icons</p>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://m.media-amazon.com/images/M/MV5BYjgxMDI5NmMtNTU3OS00ZDQxLTgxZmEtNzY1ZTBmMDY4NDRkXkEyXkFqcGc@._V1_QL75_UX140_CR0,0,140,207_.jpg" alt="Conclave">
+            <div class="movie-info">
+                <div class="movie-title">Ralph Fiennes and Stanley Tucci Star in 'Conclave'</div>
+                <div class="movie-duration">1:52</div>
+                <p>Watch the New Trailer</p>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://m.media-amazon.com/images/M/MV5BYWZlZWM0MzMtNWE2MC00Mzc0LWFkMDMtYWE0Y2RjOTZiM2VkXkEyXkFqcGc@._V1_QL75_UX140_CR0,0,140,207_.jpg" alt="Outer Banks">
+            <div class="movie-info">
+                <div class="movie-title">"Outer Banks" Stars Quiz Each Other on Their Best Lines</div>
+                <div class="movie-duration">5:32</div>
+                <p>Hear Their Peak Moments From the Series</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 IMDb. All rights reserved.</p>
+    </footer>
+
+    
+<!-- Cửa sổ menu -->
+    <div class="side-menu" id="sideMenu">
+    <span class="close-menu" onclick="toggleMenu()">×</span>
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="advanced-search.html">Tìm kiếm nâng cao</a></li> <!-- Link to advanced search page -->
+        <li><a href="rated-movies.html">Danh sách bộ phim đã đánh giá</a></li> <!-- Link to rated movies page -->
+        <li><a href="search-history.html">Lịch sử tìm kiếm</a></li> <!-- Link to search history page -->
+        <li><a href="account-info.html">Thông tin tài khoản</a></li> <!-- Link to account info page -->
+    </ul>
+    </div>
+
+
+    <script>
+        // Giả định người dùng đã đăng nhập
+        const isLoggedIn = false; // Đặt true nếu người dùng đã đăng nhập
+
+        // Hàm để hiển thị hoặc ẩn các mục menu
+        function updateMenu() {
+            const loginOption = document.getElementById('loginOption');
+            const logoutOption = document.getElementById('logoutOption');
+            
+            if (isLoggedIn) {
+                loginOption.style.display = 'none'; // Ẩn mục Đăng nhập
+                logoutOption.style.display = 'block'; // Hiện mục Đăng xuất
+            } else {
+                loginOption.style.display = 'block'; // Hiện mục Đăng nhập
+                logoutOption.style.display = 'none'; // Ẩn mục Đăng xuất
+            }
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.classList.toggle('active'); // Thay đổi trạng thái menu
+        }
+
+        // Gọi hàm updateMenu khi tải trang
+        updateMenu();
+        
+    </script>
+
+</body>
+</html>
